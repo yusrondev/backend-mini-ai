@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "ada3984e-43ea-4707-b12e-79622e4ff348",
+		"name": "BACKEND MINI AI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22986591",
+		"_collection_link": "https://winter-moon-654498.postman.co/workspace/Team-Workspace~98aca31e-c3ae-433d-8652-bfe78811fcc1/collection/22986591-ada3984e-43ea-4707-b12e-79622e4ff348?action=share&source=collection_link&creator=22986591"
+	},
+	"item": [
+		{
+			"name": "Result",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/result/5dc77118-58cf-42d7-baa0-698c8f33e59c",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"result",
+						"5dc77118-58cf-42d7-baa0-698c8f33e59c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Evaluate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : \"5dc77118-58cf-42d7-baa0-698c8f33e59c\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/evaluate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"evaluate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cv",
+							"type": "file",
+							"src": "/Users/admin/RND/backend-mini-ai-fix/sample-file/cv.txt"
+						},
+						{
+							"key": "report",
+							"type": "file",
+							"src": "/Users/admin/RND/backend-mini-ai-fix/sample-file/report.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/upload",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jobDesc\": \"backend\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/search",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
