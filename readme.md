@@ -54,7 +54,7 @@ backend-mini-ai/
    ```
    Default berjalan di: [http://localhost:3000](http://localhost:3000)
 
-5. Anda hanya perlu membuat database kosong sesuai konfigurasi pada .env, karena sistem sudah dilengkapi dengan auto migrate. Migrasi tabel akan dijalankan otomatis ketika aplikasi dijalankan pertama kali.
+5. Anda hanya perlu membuat database kosong sesuai konfigurasi pada `.env`, karena sistem sudah dilengkapi dengan auto migrate. Migrasi tabel akan dijalankan otomatis ketika aplikasi dijalankan pertama kali.
 
 ## 📌 API Endpoint
 
