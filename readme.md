@@ -118,13 +118,20 @@ Setelah beberapa detik, hasil evaluasi akan menjadi:
 ```
 
 ### 3. Search Candidate
-**GET** `/search?query=<keyword>`  
+**POST** `/search`  
 
-Mencari kandidat berdasarkan nama, skills, atau data terkait (bergantung implementasi query).  
+Body (JSON):
+```json
+{
+  "jobDesc": "backend"
+}
+```
 
 Contoh cURL:
 ```bash
-curl "http://localhost:3000/search?query=node"
+curl --location 'http://localhost:3000/search' --header 'Content-Type: application/json' --data '{
+  "jobDesc": "backend"
+}'
 ```
 
 Response (contoh):
