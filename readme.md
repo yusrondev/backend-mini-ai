@@ -24,6 +24,8 @@ backend-mini-ai/
 ├── routes/
 │   ├── upload.js       # handle upload CV & report
 │   ├── evaluate.js     # evaluasi menggunakan AI
+│   ├── search.js       # search kandidat
+│   ├── result.js       # ambil hasil evaluasi
 ├── services/
 │   ├── ai.js           # konfigurasi model AI
 │   ├── candidate.js    # simpan kandidat (sementara)
@@ -112,6 +114,56 @@ Setelah beberapa detik, hasil evaluasi akan menjadi:
     "job_comparison": "...",
     "project_feedback": "..."
   }
+}
+```
+
+### 3. Search Candidate
+**GET** `/search?query=<keyword>`  
+
+Mencari kandidat berdasarkan nama, skills, atau data terkait (bergantung implementasi query).  
+
+Contoh cURL:
+```bash
+curl "http://localhost:3000/search?query=node"
+```
+
+Response (contoh):
+```json
+[
+  {
+    "id": "uuid-123",
+    "cv": "CV content ...",
+    "report": "Report content ..."
+  }
+]
+```
+
+### 4. Get Evaluation Result
+**GET** `/result/:id`  
+
+Mengambil hasil evaluasi berdasarkan `id`.  
+
+Contoh cURL:
+```bash
+curl http://localhost:3000/result/uuid-generated
+```
+
+Response (jika sudah selesai):
+```json
+{
+  "status": "completed",
+  "result": {
+    "cv_feedback": "...",
+    "job_comparison": "...",
+    "project_feedback": "..."
+  }
+}
+```
+
+Response (jika belum selesai):
+```json
+{
+  "status": "queued"
 }
 ```
 
