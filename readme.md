@@ -63,6 +63,8 @@ Form-data (file):
 - `cv` : file CV (text/pdf yang di-convert ke string)  
 - `report` : file report  
 
+Atau bisa gunakan file sample di dalam `sample-file/cv.text`, `sample-file/report.text`
+
 Contoh cURL:
 ```bash
 curl -X POST http://localhost:3000/upload   -F "cv=@./sample_cv.txt"   -F "report=@./sample_report.txt"
