@@ -1,0 +1,28 @@
+Full Name: Yusron Laksono
+Email: yusron.dev@gmail.com
+Phone: +62 8967 6315 535
+
+Summary:
+Backend engineer with 5 years of experience in building scalable web services.
+Strong background in databases, APIs, and cloud deployments. Recently exploring AI integration with LLMs.
+
+Skills:
+- Backend: Node.js, Express, Django
+- Databases: PostgreSQL, MongoDB
+- Cloud: AWS (EC2, S3, RDS), GCP
+- APIs: REST, GraphQL
+- AI/LLM: Prompt design, basic RAG
+
+Work Experience:
+1. Backend Engineer at Tech Solutions (2022–Present)
+   - Built REST APIs used by 100k+ users.
+   - Migrated legacy system to microservices.
+   - Deployed apps to AWS with CI/CD pipelines.
+
+2. Junior Backend Engineer at Digital Labs (2020–2022)
+   - Maintained internal APIs.
+   - Improved query performance (50% faster).
+
+Projects:
+- E-commerce Backend: Developed order & payment service (Node.js + PostgreSQL).
+- AI Chatbot (prototype): Integrated OpenAI API for customer FAQ bot.

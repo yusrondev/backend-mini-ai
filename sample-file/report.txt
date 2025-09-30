@@ -1,0 +1,38 @@
+Project: AI-Powered CV & Project Evaluator
+Author: Yusron Laksono
+
+Overview:
+This project implements a backend service to evaluate candidate CVs and project reports against job requirements using LLMs.
+
+Design Decisions:
+- Backend framework: Express.js
+- AI Integration: Google Gemini API
+- Vector DB: Simple in-memory embeddings for job description
+- Async Handling: Queued tasks simulated with setTimeout
+- Error Handling: Retry mechanism + fallback response
+
+Scoring Implementation:
+1. Correctness:
+   - Implemented prompt design for CV extraction and project evaluation.
+   - LLM chaining used (CV → evaluation → refinement).
+   - Basic RAG with vector DB (job description stored and retrieved).
+
+2. Code Quality:
+   - Modular structure with routes, services, and utils.
+   - Added comments and clear separation of concerns.
+
+3. Resilience:
+   - Simulated retry/backoff when LLM call fails.
+   - Status endpoints (`/evaluate` + `/result/:id`) for long-running tasks.
+
+4. Documentation:
+   - README explains setup, architecture, and trade-offs.
+   - Included Postman collection for testing.
+
+5. Creativity:
+   - Added extra feature: authentication middleware for `/evaluate`.
+   - Dockerfile for containerization.
+
+Limitations:
+- Vector DB simplified, not production-grade.
+- LLM responses mocked when API unavailable.
