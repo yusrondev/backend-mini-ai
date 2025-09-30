@@ -1,0 +1,115 @@
+# Backend Mini AI
+
+Proyek ini menerima upload file (CV dan report), lalu menggunakan AI untuk melakukan analisis CV, perbandingan dengan job vacancy, serta evaluasi project.
+
+## 🚀 Fitur
+- Upload CV dan report (menggunakan `multer`).
+- Simpan file sementara di memori.
+- Analisis CV untuk mengekstrak skill.
+- Bandingkan CV dengan job vacancy.
+- Evaluasi report project.
+- Endpoint untuk mengecek hasil analisis.
+
+## 🛠️ Tech Stack
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [Multer](https://github.com/expressjs/multer) – upload file
+- [uuid](https://www.npmjs.com/package/uuid) – generate ID unik
+- Google Generative AI API (Gemini)
+- ES Modules
+
+## 📂 Struktur Project
+```
+backend-mini-ai/
+├── routes/
+│   ├── upload.js       # handle upload CV & report
+│   ├── evaluate.js     # evaluasi menggunakan AI
+├── services/
+│   ├── ai.js           # konfigurasi model AI
+│   ├── candidate.js    # simpan kandidat (sementara)
+├── utils/
+│   ├── safeGenerate.js # helper wrapper untuk AI
+├── data/
+│   ├── jobVacancy.js   # data lowongan kerja
+├── app.js              # entrypoint express
+```
+
+## ⚙️ Setup & Jalankan
+1. Clone repo
+   ```bash
+   git clone https://github.com/yusrondev/backend-mini-ai.git
+   cd backend-mini-ai
+   ```
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+3. Buat file `.env` dan isi dengan API Key Gemini:
+   ```
+   GEMINI_API_KEY=your_api_key_here
+   ```
+4. Jalankan server
+   ```bash
+   npm start
+   ```
+   Default berjalan di: [http://localhost:3000](http://localhost:3000)
+
+## 📌 API Endpoint
+
+### 1. Upload File
+**POST** `/upload`  
+
+Form-data (file):  
+- `cv` : file CV (text/pdf yang di-convert ke string)  
+- `report` : file report  
+
+Contoh cURL:
+```bash
+curl -X POST http://localhost:3000/upload   -F "cv=@./sample_cv.txt"   -F "report=@./sample_report.txt"
+```
+
+Response:
+```json
+{
+  "id": "uuid-generated",
+  "status": "uploaded"
+}
+```
+
+### 2. Evaluasi CV & Report
+**POST** `/evaluate`  
+
+Body (JSON):
+```json
+{
+  "id": "uuid-generated"
+}
+```
+
+Contoh cURL:
+```bash
+curl -X POST http://localhost:3000/evaluate   -H "Content-Type: application/json"   -d '{"id":"uuid-generated"}'
+```
+
+Response langsung (queued):
+```json
+{
+  "id": "uuid-generated",
+  "status": "queued"
+}
+```
+
+Setelah beberapa detik, hasil evaluasi akan menjadi:
+```json
+{
+  "status": "completed",
+  "result": {
+    "cv_feedback": "...",
+    "job_comparison": "...",
+    "project_feedback": "..."
+  }
+}
+```
+
+## 👨‍💻 Author
+- [Yusron Dev](https://github.com/yusrondev)
